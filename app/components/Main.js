@@ -5,30 +5,53 @@ var Link = require("react-router").Link;
 
 var Main = React.createClass({
 
-  // Here we render the function
+  // Here we render the function - a note - the Search and Saved Articles buttons in the navbar trigger the url routing functions on the server.js page. 
+
   render: function() {
 
-    return (
+    return(
 
-      <div className="container">
-        <div className="jumbotron" style="background-color: #20315A ; color: white;">
-          <h1><strong><i class="fa fa-newspaper-o">New York Times Search</i></strong></h1>
-          <p><em>A journey through the whimsical world of React Routing</em></p>
-          <hr />
-          <p>
-            <Link to="/Child1"><button className="btn btn-primary btn-lg">Show Child #1</button></Link>
-            <Link to="/Child2"><button className="btn btn-danger btn-lg">Show Child #2</button></Link>
-          </p>
+      <div className="main-container">
+        
+
+        <div className="container">
+
+          <nav className="navbar navbar-default" role="navigation">
+           <div className="container-fluid">
+            <div className="navbar-header">
+             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+              <span className="icon-bar"></span>
+             </button>
+             <a className="navbar-brand" href="#">NYT-React</a>
+            </div>
+           </div>
+
+           <div className="collapse navbar-collapse navbar-ex1-collapse">
+            <ul className="nav navbar-nav navbar-right">
+              <li><a href="#/search">Search</a></li>
+              <li><a href="#/saved">Saved Articles</a></li>
+            </ul>
+           </div>
+          </nav>
+          
+          <div className="jumbotron" style="background-color: #20315A ; color: white;">
+            <h2 className="text-center"><strong>New York Times Scrubber</strong></h2>
+          </div>
+
+          
+
+            {/* This code will dump the correct Child Component */}
+            {this.props.children}
+
+          </div>
+
         </div>
 
-        <div className="row">
+       
 
-          {/* This code will dump the correct Child Component */}
-          {this.props.children}
-
-        </div>
-
-      </div>
     );
   }
 });
